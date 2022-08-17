@@ -1,22 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>docs</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <meta charset="UTF-8">
+    <title>Docs</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 设置浏览器图标 -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- 默认主题 -->
+    <link rel="stylesheet" href="/lib/vue.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css"> -->
+
 </head>
+
 <body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      name: '',
-      repo: ''
-    }
-  </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- 定义加载时候的动作 -->
+    <div id="app">🏃‍🏃‍🏃‍💨加载中...</div>
+    <script>
+        window.$docsify = {
+            name: 'Docs', // 项目名称
+            repo: "https://gitee.com/xseoy/docs", // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
+            loadSidebar: true, // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
+            subMaxLevel: 6, // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
+            maxLevel: 4, // 最大支持渲染的标题层级
+            loadNavbar: true,// 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
+            coverpage: true, // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
+            //onlyCover: true, // 封面和内容单独显示，封面向下滑动可以将不能看到内容
+            mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
+            externalLinkTarget: '_blank', //外链打开方式，_blank 新标签页
+            topMargin: 10, // default: 0 内容页在滚动到指定的锚点时，距离页面顶部有一定空间
+            mergeNavbar: true,
+            //themeColor: '#FF69B4', // FF69B4 3F51B5 主题颜色
+            //auto2top: true,  //当切换标签时自动滚动到顶部
+            //autoHeader: true, //侧边栏的目录名作为正文的标题
+            timeUpdater: {
+                text: "<div align='right' width='200px' style='color:gray;font-size:10px'> 更新时间:&emsp;{docsify-updated}</div>",
+                formatUpdated: "{YYYY}/{MM}/{DD}",
+                whereToPlace: "top"  // "top" or "bottom", default to "bottom"
+            }        
+        }
+    </script>
+    <script>
+        // 搜索配置(url：https://docsify.js.org/#/zh-cn/plugins?id=%e5%85%a8%e6%96%87%e6%90%9c%e7%b4%a2-search)
+        window.$docsify = {
+            search: {
+                maxAge: 86400000,// 过期时间，单位毫秒，默认一天
+                paths: auto,// 注意：仅适用于 paths: 'auto' 模式
+                placeholder: '🔍 搜索',
+                noData: '😒 找不到结果,换个搜索词试试?',
+                depth: 6,
+                //hideOtherSidebarContent: false,
+                namespace: 'sre.docs.jkservice.org',
+            }
+        }
+    </script>
+    <!-- docsify的js依赖 -->
+    <script src="lib/docsify.min.js"></script>
+    <!-- emoji表情支持 -->
+    <script src="/lib/emoji.min.js"></script>
+    <!-- 图片放大缩小支持 -->
+    <script src="/lib/zoom-image.min.js"></script>
+    <!-- 搜索功能支持 -->
+    <script src="/lib/search.min.js"></script>
+    <!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
+    <script src="/lib/docsify-copy-code.min.js"></script>
+    <!-- 侧边栏折叠插件     -->
+    <script src="/lib/docsify-sidebar-collapse.min.js"></script>
+    <!-- 字数统计 -->
+    <script src="/lib/countable.js"></script>
+    <!-- 代码高亮 -->
+    <script src="/lib/prism-java.min.js"></script>
+    <script src="/lib/prism-python.min.js"></script>
+    <script src="/lib/prism-bash.min.js"></script>
+    <script src="/lib/prism-yaml.min.js"></script>
+    <script src="/lib/prism-markup.min.js"></script>
+    <script src="/lib/prism-markdown.min.js"></script>
+    <script src="/lib/prism-sql.min.js"></script>
+    <!-- 文章底部显示 下一篇 上一篇 -->
+    <!-- <script src="/lib/docsify-pagination.min.js"></script> -->
+    <!-- 红心点击特效插件 -->
+    <!-- <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script> -->
+    <!-- 回到顶部功能 -->
+    <script src="/lib/jquery.js"></script>
+    <script src="/lib/jquery.goup.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $.goup({
+          trigger: 100,
+          bottomOffset: 50,
+          locationOffset: 25,
+          //title: 'TOP',
+          titleAsText: true
+        });
+      });
+    </script>
+    <!-- PDFObject.js  -->
+    <script src="/lib/pdfobject.min.js"></script> 
+    <script src="/lib/docsify-pdf-embed.js"></script>
+    <!-- 文档更新时间  -->
+    <script src="/lib/time-updater.min.js"></script>
+
 </body>
+
 </html>
